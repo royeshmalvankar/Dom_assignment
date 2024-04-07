@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Investor</title>
+</head>
+<style>
+     .investor{
+             /* border: 1px solid black; */
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            justify-content: center;
+            width: 70%;
+            height: auto;
+            margin: auto;
+            gap: 20px;
+            border-radius: 10px;
+
+
+        }
+        .investor>div>img{
+            /* border: 1px solid green; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            
+        }
+        .imginvestor{
+            width: 100%;
+        }
+        .ig{ 
+            /* border: 1px solid black; */
+            height: auto;
+            width: auto;
+            display: flex;
+            height: 50px;
+            /* width: 140px; */
+            margin-left: auto;
+            margin-right: auto;
+            /* border-radius: 10px; */
+            margin-top: -10px;
+        }
+        .b{
+        text-align: center;
+        font-size: 40px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h3{
+            font-size: 28px;
+            text-align: center;
+            font-family:system-ui, 'Open Sans', sans-serif;
+            margin-top: 0px;
+            }
+        p{
+            text-align: center;
+            font-size: 18px;
+            font-family:sans-serif;
+            margin-top: -20px;
+            color: rgb(97,90,92);
+        }
+        .c{
+            height: auto;
+            width: auto;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
+        }
+        .btn{
+            height: 40px;
+            width: 100px;
+            margin-left: 35%;
+            margin-right: 35%;
+        }
+</style>
+<body>
+    <input type="text" name="" id="search" placeholder="Search">
+    <button id="btn">Search</button>
+    <button id="home">Home</button>
+    <div id="container">
+    </div>
+</body>
+<script>
+    let container = document.querySelector("#container")
+    let divtitle = document.createElement("div")
+    let title= document.createElement("h1")
+    title.classList.add("b")
+    let btag = document.createElement("b")
+    btag.innerText = "Strategic Investors"
+    title.append(btag)
+    divtitle.append(title)
+    container.append(divtitle)
+
+    let masai = [
+        {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+        name: "Vijay Shekhar Sharma",
+        post:"Founder & CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+        name: "Kunal Shah",
+        post:"Founder",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"  
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+        name: "Amrish Rau",
+        post:"CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"  
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+        name: "Sampad Swain",
+        post:"Co-Founder & CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png"  
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+        name: "Vijay Shekhar Sharma",
+        post:"Founder & CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+        name: "Kunal Shah",
+        post:"Founder",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"  
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+        name: "Amrish Rau",
+        post:"CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"  
+    },
+    {
+        img: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+        name: "Sampad Swain",
+        post:"Co-Founder & CEO",
+        company:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png"  
+    }
+    ]
+    let investor = document.createElement("div")
+        investor.classList.add("investor")
+
+        function show(masai)
+        {  
+            masai.forEach(function(el,i){
+            let div = document.createElement("div")
+            div.classList.add("c")
+            let img = document.createElement("img")
+            img.src = el.img
+            img.classList.add("imginvestor")
+            let name = document.createElement("h3")
+            name.innerText = el.name
+            let post = document.createElement("p")
+            post.innerText = el.post
+            let company = document.createElement("img")
+            company.classList.add("ig")
+            let deleteData = document.createElement("button")
+            deleteData.innerText = "Delete"
+            deleteData.classList.add("btn")
+            deleteData.addEventListener("click",function(){
+                deleteD(i)
+            })
+            company.src = el.company
+            div.append(img,name,post,company,deleteData)
+            investor.append(div) }
+            )
+        }
+    function deleteD(i){
+        investor.innerHTML = null
+        masai.splice(i,1)
+        console.log(i)
+        show(masai)
+    }
+    container.append(investor)
+
+    let src = document.querySelector("#search")
+    let btn = document.querySelector("#btn")
+    btn.addEventListener("click",myFunction)
+    function myFunction(){
+        let val = src.value
+        let filter = masai.filter(function(el){
+            return el.name.toLowerCase() === val.toLowerCase()
+        })
+        console.log(filter)
+        let investor = document.querySelector(".investor")
+        investor.innerHTML = null
+        if(filter.length === 0){
+            alert("No result found")
+            show(masai)
+        }
+       show(filter)
+    }
+    let home = document.querySelector("#home")
+    home.addEventListener("click",myFunction2)
+    function myFunction2(){
+        investor.innerHTML = null
+        show(masai)
+    }
+    show(masai)
+
+</script>
+</html>
